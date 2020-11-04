@@ -48,6 +48,15 @@ const movie5 = {
   rating: "PG",
 }
 
+//User Interface Logic
+$(window).on("load", function(){
+  $("#movieName1").text(movie1.name)
+  $("#movieName2").text(movie2.name)
+  $("#movieName3").text(movie3.name)
+  $("#movieName4").text(movie4.name)
+  $("#movieName5").text(movie5.name)
+});
+
 function movieValue() {
   if ($("input:radio[name=movie]:checked").val() === "movie1") {
     return movie1
@@ -73,8 +82,6 @@ function timeValue() {
   else return 1
 }
 
-
-
 function ageValue() {
   if (parseInt($("#age").val()) <= 60) {
     return 1
@@ -82,7 +89,6 @@ function ageValue() {
   else return .75
 }
 
-    //User Interface Logic
 $(document).ready(function() {
   $("#inputForm").submit(function(event) {
     event.preventDefault();
@@ -90,8 +96,5 @@ $(document).ready(function() {
     ticketPrice.addTicket(ticket);
     outputPrice = ticketPrice.tickets[0].movie.price * ticketPrice.tickets[0].age * ticketPrice.tickets[0].numberOfTickets * ticketPrice.tickets[0].time
     $(".ticket-price").text(outputPrice);
-
   });
-  
 });
-
